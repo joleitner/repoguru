@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: next-app
+      target: development
+    volumes:
+      - ./next-app:/app
+    ports:
+      - 3000:3000
