@@ -66,7 +66,7 @@ export default function NavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ mr: "50px" }}>
+          <Typography variant="h6" component="h1" sx={{ mr: "50px" }}>
             {title}
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>

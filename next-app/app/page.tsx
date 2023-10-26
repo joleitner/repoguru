@@ -7,7 +7,7 @@ import GitUserGrid from "./components/GitUserGrid";
 import { searchUsers } from "./githubApi";
 import { GitUser } from "./types";
 
-export default function Home() {
+export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [users, setUsers] = useState<GitUser[]>([]);
 

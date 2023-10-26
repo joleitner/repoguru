@@ -37,8 +37,9 @@ const Searchbar: React.FC<SearchbarProps> = ({
           onChange={(e) => {
             setSearchTerm(e.target.value);
           }}
+          data-testid="searchbar-field"
         />
-        <IconButton type="submit">
+        <IconButton type="submit" data-testid="searchbar-button">
           <SearchIcon />
         </IconButton>
       </Box>
