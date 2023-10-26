@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { Container } from "@mui/material";
 import Searchbar from "./components/Searchbar";
-import GithubUserGrid from "./components/GithubUserGrid";
+import GitUserGrid from "./components/GitUserGrid";
 import { searchUsers } from "./githubApi";
-import { GithubUser } from "./types";
+import { GitUser } from "./types";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [users, setUsers] = useState<GithubUser[]>([]);
+  const [users, setUsers] = useState<GitUser[]>([]);
 
   const handleSearch = async () => {
     const users = await searchUsers(searchTerm);
@@ -19,11 +19,12 @@ export default function Home() {
   return (
     <Container>
       <Searchbar
+        searchType="user"
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         handleSearch={handleSearch}
       />
-      <GithubUserGrid users={users} />
+      <GitUserGrid users={users} />
     </Container>
   );
 }

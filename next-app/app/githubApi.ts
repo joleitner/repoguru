@@ -1,10 +1,8 @@
-import { GithubUser, Repository } from "./types";
+import { GitUser, Repository } from "./types";
 
 const BASE_URL = "https://api.github.com";
 
-export const searchUsers = async (
-  searchTerm: string
-): Promise<GithubUser[]> => {
+export const searchUsers = async (searchTerm: string): Promise<GitUser[]> => {
   const response = await fetch(`${BASE_URL}/search/users?q=${searchTerm}`);
   const data = await response.json();
   return data.items;
@@ -20,7 +18,7 @@ export const searchRepositories = async (
   return data.items;
 };
 
-export const getUser = async (username: string): Promise<GithubUser> => {
+export const getUser = async (username: string): Promise<GitUser> => {
   const response = await fetch(`${BASE_URL}/users/${username}`);
   const data = await response.json();
   return data;

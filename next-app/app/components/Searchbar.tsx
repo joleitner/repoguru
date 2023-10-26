@@ -8,18 +8,20 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 
 interface SearchbarProps {
+  searchType: "repository" | "user";
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   handleSearch: () => void;
 }
 
 const Searchbar: React.FC<SearchbarProps> = ({
+  searchType,
   searchTerm,
   setSearchTerm,
   handleSearch,
 }) => {
   return (
-    <Paper>
+    <Paper sx={{ m: "5px" }}>
       <Box
         component="form"
         sx={{ display: "flex" }}
@@ -30,9 +32,11 @@ const Searchbar: React.FC<SearchbarProps> = ({
       >
         <TextField
           fullWidth
-          placeholder="Search for a repository..."
+          placeholder={`Find a ${searchType}...`}
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
         />
         <IconButton type="submit">
           <SearchIcon />

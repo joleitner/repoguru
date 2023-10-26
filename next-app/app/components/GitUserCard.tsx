@@ -4,11 +4,11 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import { GithubUser } from "../types";
+import { GitUser } from "../types";
 import Button from "@mui/material/Button";
 import { CardActions, CardContent } from "@mui/material";
 
-export default function GithubUserCard({ user }: { user: GithubUser }) {
+export default function GitUserCard({ user }: { user: GitUser }) {
   return (
     <Link href={`/users/${user.login}`}>
       <Card>

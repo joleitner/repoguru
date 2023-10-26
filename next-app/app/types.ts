@@ -3,24 +3,25 @@ import { type } from "os";
 export type Repository = {
   id: number;
   name: string;
+  full_name: string;
   description: string;
   html_url: string;
   stargazers_count: number;
-  watchers_count: number;
-  forks_count: number;
-  open_issues_count: number;
+  watchers: number;
+  forks: number;
+  open_issues: number;
   language: string;
-  owner: {
-    login: string;
-    avatar_url: string;
-  };
+  owner: GitUser;
 };
 
-export type GithubUser = {
+export type GitUser = {
   id: number;
   login: string;
   avatar_url: string;
   html_url: string;
+  name?: string;
+  location?: string;
+  bio?: string;
   public_repos?: number;
   followers?: number;
   following?: number;
