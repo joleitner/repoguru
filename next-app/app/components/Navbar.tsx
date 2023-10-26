@@ -1,6 +1,7 @@
 "use client";
 
 import AppBar from "@mui/material/AppBar";
+import Link from "next/link";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
@@ -10,9 +11,11 @@ function Navbar() {
   return (
     <AppBar position="fixed" sx={{ zIndex: 2000 }}>
       <Toolbar>
-        <Typography variant="h6" color="text.primary">
-          RepoGuru
-        </Typography>
+        <Link href="/" passHref>
+          <Typography component="a" variant="h6" color="text.primary">
+            RepoGuru
+          </Typography>
+        </Link>
       </Toolbar>
     </AppBar>
   );

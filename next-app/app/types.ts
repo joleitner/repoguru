@@ -17,10 +17,11 @@ export type Repository = {
 };
 
 export type GithubUser = {
+  id: number;
   login: string;
   avatar_url: string;
-  followers: number;
-  following: number;
-  public_repos: number;
-  public_gists: number;
+  html_url: string;
+  public_repos?: number;
+  followers?: number;
+  following?: number;
 };

@@ -20,16 +20,23 @@ const Searchbar: React.FC<SearchbarProps> = ({
 }) => {
   return (
     <Paper>
-      <Box component="form" sx={{ display: "flex" }}>
+      <Box
+        component="form"
+        sx={{ display: "flex" }}
+        onSubmit={(e) => {
+          e.preventDefault(); // Prevent the default form submission behavior
+          handleSearch(); // Call actual search handler
+        }}
+      >
         <TextField
           fullWidth
           placeholder="Search for a repository..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        {/* <IconButton onClick={handleSearch}>
-        <SearchIcon />
-      </IconButton> */}
+        <IconButton type="submit">
+          <SearchIcon />
+        </IconButton>
       </Box>
     </Paper>
   );
