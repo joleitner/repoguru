@@ -1,17 +1,7 @@
 import type { Preview } from "@storybook/react";
-// import { CssBaseline, ThemeProvider } from "@mui/material";
-// import { withThemeFromJSXProvider } from "@storybook/addon-styling";
-// import theme from "../app/theme/theme";
-
-/* snipped for brevity */
-
-// export const decorators = [
-//   withThemeFromJSXProvider({
-//     themes: { theme },
-//     Provider: ThemeProvider,
-//     GlobalStyles: CssBaseline,
-//   }),
-// ];
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { withThemeFromJSXProvider } from "@storybook/addon-themes";
+import { lightTheme, darkTheme } from "../app/theme/theme";
 
 const preview: Preview = {
   parameters: {
@@ -23,6 +13,19 @@ const preview: Preview = {
       },
     },
   },
+
+  decorators: [
+    withThemeFromJSXProvider({
+      GlobalStyles: CssBaseline,
+      Provider: ThemeProvider,
+      themes: {
+        // Provide your custom themes here
+        light: lightTheme,
+        dark: darkTheme,
+      },
+      defaultTheme: "light",
+    }),
+  ],
 };
 
 export default preview;

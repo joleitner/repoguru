@@ -1,38 +1,25 @@
-import React, { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
 import Searchbar from "../app/components/Searchbar";
 
-export default {
-  title: "Searchbar",
+const meta: Meta<typeof Searchbar> = {
   component: Searchbar,
 };
+export default meta;
 
-// Mock handleSearch function
-const handleSearch = () => {
-  console.log("Mock search function called");
+type Story = StoryObj<typeof Searchbar>;
+
+export const UserSearchbar: Story = {
+  args: {
+    searchType: "user",
+    searchTerm: "",
+    setSearchTerm: () => {},
+    handleSearch: () => {},
+  },
 };
 
-export const UserSearchbar = () => {
-  const [searchTerm, setSearchTerm] = useState(""); // Set an initial search term
-
-  return (
-    <Searchbar
-      searchType="user"
-      searchTerm={searchTerm}
-      setSearchTerm={setSearchTerm}
-      handleSearch={handleSearch}
-    />
-  );
-};
-
-export const RepositorySearchbar = () => {
-  const [searchTerm, setSearchTerm] = useState(""); // Set an initial search term
-
-  return (
-    <Searchbar
-      searchType="repository"
-      searchTerm={searchTerm}
-      setSearchTerm={setSearchTerm}
-      handleSearch={handleSearch}
-    />
-  );
+export const RepositorySearchbar: Story = {
+  args: {
+    ...UserSearchbar.args,
+    searchType: "repository",
+  },
 };

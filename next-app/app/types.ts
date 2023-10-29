@@ -9,7 +9,6 @@ export type Repository = {
   stargazers_count: number;
   watchers: number;
   forks: number;
-  open_issues: number;
   language: string;
   owner: GitUser;
 };
@@ -18,7 +17,7 @@ export type GitUser = {
   id: number;
   login: string;
   avatar_url: string;
-  html_url: string;
+  html_url?: string;
   name?: string;
   location?: string;
   bio?: string;
