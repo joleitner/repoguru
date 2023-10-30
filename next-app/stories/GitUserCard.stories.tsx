@@ -3,7 +3,6 @@ import GitUserCard from "../app/components/GitUserCard";
 
 const meta: Meta<typeof GitUserCard> = {
   component: GitUserCard,
-  decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
 };
 export default meta;
 

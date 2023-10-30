@@ -71,11 +71,7 @@ export default function NavBar() {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item, i) => (
-              <Button
-                key={item}
-                href={navItemsLinks[i]}
-                sx={{ color: "black", mx: 2 }}
-              >
+              <Button key={item} href={navItemsLinks[i]} sx={{ mx: 2 }}>
                 {item}
               </Button>
             ))}

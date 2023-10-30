@@ -12,10 +12,10 @@ export const lightTheme = createTheme({
   palette: {
     mode: "light",
     primary: {
-      main: "#96B6C5",
+      main: "#001524",
     },
     secondary: {
-      main: "#ADC4CE",
+      main: "#D6CC99",
     },
     // background: {
     //   default: "#BCA37F",
