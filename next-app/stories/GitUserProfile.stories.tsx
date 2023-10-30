@@ -8,6 +8,12 @@ export default meta;
 
 type Story = StoryObj<typeof GitUserProfile>;
 
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};
+
 export const Complete: Story = {
   args: {
     user: {

@@ -1,20 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import RepoItem from "../app/components/RepoItem";
-import Divider from "@mui/material/Divider";
 
 const meta: Meta<typeof RepoItem> = {
   component: RepoItem,
-  decorators: [
-    (story) => (
-      <div style={{ padding: "3rem" }}>
-        <Divider>{story()}</Divider>
-      </div>
-    ),
-  ],
 };
 export default meta;
 
 type Story = StoryObj<typeof RepoItem>;
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};
 
 export const Complete: Story = {
   args: {

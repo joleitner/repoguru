@@ -8,12 +8,49 @@ import Code from "@mui/icons-material/Code";
 import Star from "@mui/icons-material/Star";
 import StarOutline from "@mui/icons-material/StarOutline";
 import ForkRight from "@mui/icons-material/ForkRight";
+import Skeleton from "@mui/material/Skeleton";
 
 import { GitUser, Repository } from "../types";
 import Button from "@mui/material/Button";
 import { CardActions, CardContent } from "@mui/material";
 
-export default function RepoItem({ repo }: { repo: Repository }) {
+interface RepoItemProps {
+  repo: Repository | null;
+  loading?: boolean;
+}
+
+const RepoItem: React.FC<RepoItemProps> = ({ repo, loading }) => {
+  if (loading) {
+    return (
+      <Container sx={{ p: "5px 0" }}>
+        <Skeleton variant="text" width={150} sx={{ fontSize: "1.5rem" }} />
+        <Skeleton variant="text" width={300} sx={{ fontSize: "1.5rem" }} />
+        <Box sx={{ display: "flex", justifyContent: "end", gap: "10px" }}>
+          <Skeleton
+            variant="rounded"
+            width={100}
+            height={30}
+            sx={{ borderRadius: "1.5rem" }}
+          />
+          <Skeleton
+            variant="rounded"
+            width={40}
+            height={30}
+            sx={{ borderRadius: "1.5rem" }}
+          />
+          <Skeleton
+            variant="rounded"
+            width={40}
+            height={30}
+            sx={{ borderRadius: "1.5rem" }}
+          />
+        </Box>
+      </Container>
+    );
+  }
+  if (!repo) {
+    return <></>;
+  }
   return (
     <Container sx={{ p: "5px 0" }}>
       <Typography variant="h5">{repo.name}</Typography>
@@ -28,7 +65,7 @@ export default function RepoItem({ repo }: { repo: Repository }) {
           />
         )}
         <Chip
-          icon={repo.stargazers_count > 0 ? <Star /> : <StarOutline />}
+          icon={<StarOutline />}
           sx={{ m: "0 5px" }}
           variant="outlined"
           label={repo.stargazers_count}
@@ -37,4 +74,5 @@ export default function RepoItem({ repo }: { repo: Repository }) {
       </Box>
     </Container>
   );
-}
+};
+export default RepoItem;

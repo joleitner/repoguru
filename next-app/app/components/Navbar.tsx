@@ -16,6 +16,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
 
 // AppBar component from Material UI docs
 
@@ -71,15 +72,22 @@ export default function NavBar() {
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item, i) => (
-              <Button key={item} href={navItemsLinks[i]} sx={{ mx: 2 }}>
+              <Button
+                color="inherit"
+                key={item}
+                href={navItemsLinks[i]}
+                sx={{ mx: 2 }}
+              >
                 {item}
               </Button>
             ))}
           </Box>
           <Typography sx={{ flexGrow: 1 }}></Typography>
-          <IconButton size="large">
-            <AccountCircle />
-          </IconButton>
+          <Tooltip title="Feature for the future! Be excited!">
+            <IconButton size="large" sx={{ color: "inherit" }}>
+              <AccountCircle />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
       <nav>

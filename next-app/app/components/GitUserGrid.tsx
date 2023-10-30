@@ -28,14 +28,13 @@ const GitUserGrid: React.FC<GitUserGridProps> = ({ users, loading }) => {
       >
         <AccountCircleIcon
           sx={{
-            fontSize: 180,
-            "@media (max-width: 600px)": {
-              fontSize: "120px", // Adjust the size for smaller screens
-            },
+            fontSize: 100,
           }}
           color="disabled"
         />
-        <Typography variant="h5">No users found</Typography>
+        <Typography variant="h6" color={"text.disabled"}>
+          No users found
+        </Typography>
       </Container>
     );
   }

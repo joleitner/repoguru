@@ -6,7 +6,9 @@ services:
       context: next-app
       target: development
     volumes:
-      - ./next-app:/app
+      - ./next-app/app:/app/app
+      - ./next-app/stories:/app/stories
+      - ./next-app/__test__:/app/__test__
     ports:
       - 3000:3000
       - 6006:6006

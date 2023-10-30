@@ -15,6 +15,12 @@ export const Empty: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    loading: true,
+  },
+};
+
 export const OneItem: Story = {
   args: {
     repos: [
