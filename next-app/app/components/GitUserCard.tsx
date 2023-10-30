@@ -1,18 +1,18 @@
-import React from "react";
-import Link from "next/link";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import { GitUser } from "../types";
-import Button from "@mui/material/Button";
-import Paper from "@mui/material/Paper";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
+import Skeleton from "@mui/material/Skeleton";
 
-export default function GitUserCard({ user }: { user: GitUser }) {
+interface GitUserCardProps {
+  user: GitUser;
+}
+
+const GitUserCard: React.FC<GitUserCardProps> = ({ user }) => {
   return (
-    <Card sx={{ width: 300 }}>
+    <Card sx={{ width: 300, m: 1 }}>
       <CardActionArea href={`/users/${user.login}`}>
         <CardContent
           sx={{
@@ -47,4 +47,5 @@ export default function GitUserCard({ user }: { user: GitUser }) {
       </CardActions> */}
     </Card>
   );
-}
+};
+export default GitUserCard;

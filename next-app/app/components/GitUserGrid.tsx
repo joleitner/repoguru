@@ -1,18 +1,20 @@
-import Grid from "@mui/material/Grid";
-import Item from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import GitUserCard from "./GitUserCard";
 import { GitUser } from "../types";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Typography } from "@mui/material";
 
-interface GithubUserGridProps {
-  users: GitUser[];
+interface GitUserGridProps {
+  users: GitUser[] | null;
+  loading?: boolean;
 }
-const GitUserGrid: React.FC<GithubUserGridProps> = ({ users }) => {
+const GitUserGrid: React.FC<GitUserGridProps> = ({ users, loading }) => {
+  // initial state is null, when the user has not searched for anything
   if (!users) {
     return <></>;
   }
+  // when the user has searched for something, but no results were found
   if (users.length === 0) {
     return (
       <Container
@@ -37,16 +39,21 @@ const GitUserGrid: React.FC<GithubUserGridProps> = ({ users }) => {
       </Container>
     );
   }
+  // grid of found users
   return (
     <Container sx={{ mt: "30px" }}>
-      <Grid container rowSpacing={2}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         {users.map((user) => (
-          // one item for mobile, 2 for tablet, 3 for desktop
-          <Item xs={12} sm={6} md={4} key={user.id}>
-            <GitUserCard user={user} />
-          </Item>
+          <GitUserCard user={user} key={user.id} />
         ))}
-      </Grid>
+      </Box>
     </Container>
   );
 };

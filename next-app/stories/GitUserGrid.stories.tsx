@@ -4,7 +4,7 @@ import { WithPicture, WithoutPicture } from "./GitUserCard.stories";
 
 const meta: Meta<typeof GitUserGrid> = {
   component: GitUserGrid,
-  decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
+  // decorators: [(story) => <div style={{ padding: "3rem" }}>{story()}</div>],
 };
 export default meta;
 

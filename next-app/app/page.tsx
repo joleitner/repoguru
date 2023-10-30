@@ -9,9 +9,15 @@ import { GitUser } from "./types";
 
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [users, setUsers] = useState<GitUser[]>([]);
+  // users is null when the user has not searched for anything (or resets the search bar)
+  const [users, setUsers] = useState<GitUser[] | null>(null);
 
   const handleSearch = async () => {
+    // if the search term is empty, set users to null
+    if (searchTerm === "") {
+      setUsers(null);
+      return;
+    }
     const users = await searchUsers(searchTerm);
     setUsers(users);
   };
