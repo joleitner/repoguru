@@ -56,19 +56,23 @@ export default function UserPage({ params }: { params: { name: string } }) {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <GitUserProfile loading={loadingUser} user={user} />
       </Box>
-      <Searchbar
-        searchType="repository"
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        handleSearch={handleSearch}
-      />
+      {(user || loadingUser) && (
+        <Searchbar
+          searchType="repository"
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          handleSearch={handleSearch}
+        />
+      )}
       {foundCount > 0 && (
         <Typography variant="body2" sx={{ mx: 3, mt: 2 }}>
           <b>{foundCount} </b> repositories matching <b>{searchTerm}</b> were
           found.
         </Typography>
       )}
-      <RepoList loading={loadingRepos} repos={repos} />
+      {(user || loadingUser) && (
+        <RepoList loading={loadingRepos} repos={repos} />
+      )}
     </Container>
   );
 }

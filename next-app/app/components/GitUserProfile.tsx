@@ -8,6 +8,7 @@ import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { GitUser } from "../types";
 import Button from "@mui/material/Button";
 import Skeleton from "@mui/material/Skeleton";
@@ -115,7 +116,26 @@ const GitUserProfile: React.FC<GitUserProfileProps> = ({ user, loading }) => {
     );
   }
 
-  if (!user) return <></>;
+  if (!user) {
+    return (
+      <Container
+        sx={{
+          mt: "50px",
+          textAlign: "center",
+        }}
+      >
+        <AccountCircleIcon
+          sx={{
+            fontSize: 100,
+          }}
+          color="disabled"
+        />
+        <Typography variant="h6" color={"text.disabled"}>
+          User does not exist
+        </Typography>
+      </Container>
+    );
+  }
 
   return (
     <Paper variant="outlined" square sx={{ width: "100%", m: 1 }}>

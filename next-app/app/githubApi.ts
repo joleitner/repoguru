@@ -21,9 +21,15 @@ export const searchUserRepos = async (
   return data.items;
 };
 
-export const getUser = async (username: string): Promise<GitUser> => {
+export const getUser = async (username: string): Promise<GitUser | null> => {
   const response = await fetch(`${BASE_URL}/users/${username}`);
   const data = await response.json();
+  // check if the user actually exists otherwise return null
+  // can happen if name is entered directly in the url
+  const login = data?.login;
+  if (login === undefined) {
+    return null;
+  }
   return data;
 };
 

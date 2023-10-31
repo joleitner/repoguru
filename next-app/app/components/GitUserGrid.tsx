@@ -20,10 +20,7 @@ const GitUserGrid: React.FC<GitUserGridProps> = ({ users, loading }) => {
       <Container
         sx={{
           mt: "50px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          textAlign: "center",
         }}
       >
         <AccountCircleIcon

@@ -40,10 +40,7 @@ const RepoList: React.FC<RepoListProps> = ({ repos, loading }) => {
       <Container
         sx={{
           mt: "50px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
+          textAlign: "center",
         }}
       >
         <SourceIcon

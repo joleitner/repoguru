@@ -6,7 +6,7 @@ RepoGuru a simple web application that allows you to search for GitHub repositor
 It was developed using React (NextJS) and TypeScript. For styling, I used Material UI.
 I have also created stories with Storybook to showcase the components in isolation.
 
-> The application is deployed on Netlify and can be accessed here: https://repoguru.netlify.app/.
+> The application is deployed on Vercel and can be accessed here: https://repoguru.vercel.app.
 
 ## Getting Started
 
@@ -31,7 +31,11 @@ To run the tests, you can run the following command:
 
 - [ ] Add pagination to the search results (only up to 100 results at the moment)
 - [ ] Add sorting to the repository search results
-- [ ] Add CI/CD pipeline to run tests and deploy to Netlify
+- [ ] Adding a tab to search repositories globally
+- [ ] Add CI/CD pipeline to run tests automatically before deploying
+- [ ] Create a unique Material UI theme
 - [ ] Adding accounts to save favorite repositories
 - [ ] Enable repo search for GitLab and other Git providers
 - [ ] ...
+
+Developing is a continuous process and there are always things that can be improved.. 😅

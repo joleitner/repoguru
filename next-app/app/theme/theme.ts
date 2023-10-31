@@ -17,31 +17,6 @@ export const lightTheme = createTheme({
     secondary: {
       main: "#D6CC99",
     },
-    // background: {
-    //   default: "#BCA37F",
-    // },
-    // text: {
-    //   primary: "#113946",
-    // },
-  },
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
-});
-
-export const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: pink["A200"],
-    },
-    secondary: {
-      main: cyan["A400"],
-    },
-    background: {
-      default: blueGrey["800"],
-      paper: blueGrey["700"],
-    },
   },
   typography: {
     fontFamily: roboto.style.fontFamily,

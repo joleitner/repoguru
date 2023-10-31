@@ -62,3 +62,9 @@ export const WithoutLocation: Story = {
     },
   },
 };
+
+export const NotFound: Story = {
+  args: {
+    user: null,
+  },
+};

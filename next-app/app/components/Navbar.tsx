@@ -17,6 +17,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
+import Link from "@mui/material/Link";
 
 // AppBar component from Material UI docs
 
@@ -67,9 +68,12 @@ export default function NavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="h1" sx={{ mr: "50px" }}>
-            {title}
-          </Typography>
+          <Link href="/" underline="none" color="inherit">
+            <Typography variant="h6" component="h1" sx={{ mr: "50px" }}>
+              {title}
+            </Typography>
+          </Link>
+
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item, i) => (
               <Button
