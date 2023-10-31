@@ -1,5 +1,4 @@
 FROM node:21-alpine AS development
-ENV NODE_ENV=development
 
 # Create app directory
 WORKDIR /app

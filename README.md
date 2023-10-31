@@ -6,7 +6,7 @@ RepoGuru a simple web application that allows you to search for GitHub repositor
 It was developed using React (NextJS) and TypeScript. For styling, I used Material UI.
 I have also created stories with Storybook to showcase the components in isolation.
 
-> The application is deployed on Netlify and can be accessed at..
+> The application is deployed on Netlify and can be accessed here: https://repoguru.netlify.app/.
 
 ## Getting Started
 
