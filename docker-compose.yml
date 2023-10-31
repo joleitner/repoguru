@@ -3,12 +3,14 @@ version: "3"
 services:
   app:
     build:
-      context: next-app
-      target: development
+      context: ./next-app
+      target: base
     volumes:
+      # - ./next-app:/app
       - ./next-app/app:/app/app
       - ./next-app/stories:/app/stories
       - ./next-app/__test__:/app/__test__
     ports:
       - 3000:3000
       - 6006:6006
+    command: npm run dev
