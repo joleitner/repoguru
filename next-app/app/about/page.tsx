@@ -1,10 +1,13 @@
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import GitHub from "@mui/icons-material/GitHub";
 import IconButton from "@mui/material/IconButton";
 
+/**
+ * About page with some information about the project
+ * @returns {JSX.Element} About page
+ */
 export default function AboutPage() {
   return (
     <Container>
@@ -13,8 +16,8 @@ export default function AboutPage() {
           About RepoGuru
         </Typography>
         <Typography variant="body1">
-          RepoGuru is a search engine for GitHub repositories. It's built with
-          Next.js and Material UI. It uses the GitHub API to search for
+          RepoGuru is a search engine for GitHub repositories. It&apos;s built
+          with Next.js and Material UI. It uses the GitHub API to search for
           repositories.
         </Typography>
         <Typography variant="body1">

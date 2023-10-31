@@ -9,6 +9,12 @@ interface GitUserGridProps {
   users: GitUser[] | null;
   loading?: boolean;
 }
+
+/**
+ * Component to display a grid of Git users
+ * @param {GitUserGridProps} props
+ * @returns {JSX.Element} GitHub user grid
+ */
 const GitUserGrid: React.FC<GitUserGridProps> = ({ users, loading }) => {
   // initial state is null, when the user has not searched for anything
   if (!users) {

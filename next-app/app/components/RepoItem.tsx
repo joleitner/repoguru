@@ -3,7 +3,6 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import Code from "@mui/icons-material/Code";
 import StarOutline from "@mui/icons-material/StarOutline";
 import ForkRight from "@mui/icons-material/ForkRight";
@@ -16,7 +15,13 @@ interface RepoItemProps {
   loading?: boolean;
 }
 
+/**
+ * Component to display a repository
+ * @param {RepoItemProps} props
+ * @returns {JSX.Element} Repository
+ */
 const RepoItem: React.FC<RepoItemProps> = ({ repo, loading }) => {
+  // while loading repository, show skeleton
   if (loading) {
     return (
       <Container sx={{ p: "5px 0" }}>
@@ -45,9 +50,11 @@ const RepoItem: React.FC<RepoItemProps> = ({ repo, loading }) => {
       </Container>
     );
   }
+  // when no repository is found, show nothing
   if (!repo) {
     return <></>;
   }
+  // show repository
   return (
     <Container sx={{ p: "5px 0" }}>
       <Link href={repo.html_url} underline="none">

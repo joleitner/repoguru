@@ -4,12 +4,16 @@ import Card from "@mui/material/Card";
 import { GitUser } from "../types";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import Skeleton from "@mui/material/Skeleton";
 
 interface GitUserCardProps {
   user: GitUser;
 }
 
+/**
+ * Component to display a git user search result
+ * @param {GitUserCardProps} props
+ * @returns {JSX.Element} GitHub user card
+ */
 const GitUserCard: React.FC<GitUserCardProps> = ({ user }) => {
   return (
     <Card sx={{ width: 300, m: 1 }}>
@@ -32,19 +36,6 @@ const GitUserCard: React.FC<GitUserCardProps> = ({ user }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {/* <CardActions
-        sx={{
-          justifyContent: "center",
-          my: 1,
-          // position: "absolute",
-          // bottom: 20,
-          // width: "100%",
-        }}
-      >
-        <Button variant="outlined" size="small" href={user.html_url}>
-          Browse Repos
-        </Button>
-      </CardActions> */}
     </Card>
   );
 };

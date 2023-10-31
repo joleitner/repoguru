@@ -19,13 +19,17 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import Link from "@mui/material/Link";
 
-// AppBar component from Material UI docs
-
 const drawerWidth = 240;
 const title = "RepoGuru";
 const navItems = ["Home", "About"];
 const navItemsLinks = ["/", "/about"];
 
+/**
+ * Navigation bar component
+ * The AppBar component from Material UI docs was taken and modified
+ *
+ * @returns {JSX.Element} Navigation bar
+ */
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 

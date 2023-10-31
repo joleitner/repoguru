@@ -21,5 +21,7 @@ export const RepositorySearchbar: Story = {
   args: {
     ...UserSearchbar.args,
     searchType: "repository",
+    languageOptions: ["TypeScript", "JavaScript", "Dart", "Python"],
+    setLanguage: () => {},
   },
 };

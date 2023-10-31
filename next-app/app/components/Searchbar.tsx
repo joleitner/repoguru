@@ -9,30 +9,51 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import InputAdornment from "@mui/material/InputAdornment";
+import Autocomplete from "@mui/material/Autocomplete";
 
 interface SearchbarProps {
   searchType: "repository" | "user";
   searchTerm: string;
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   handleSearch: () => void;
+  languageOptions?: string[];
+  setLanguage?: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
+/**
+ * Searchbar for searching users or repositories
+ * when searchType is "repository", languageOptions and setLanguage are required to show a language filter
+ *
+ * @param {SearchbarProps} props
+ * @returns {JSX.Element} Searchbar component
+ */
 const Searchbar: React.FC<SearchbarProps> = ({
   searchType,
   searchTerm,
   setSearchTerm,
   handleSearch,
+  languageOptions,
+  setLanguage,
 }) => {
   return (
-    <Paper sx={{ m: "5px" }}>
-      <Box
-        component="form"
-        sx={{ display: "flex" }}
-        onSubmit={(e) => {
-          e.preventDefault(); // Prevent the default form submission behavior
-          handleSearch(); // Call actual search handler
-        }}
-      >
+    <Box
+      component="form"
+      sx={{
+        display: "flex",
+        gap: "20px",
+        m: "5px",
+        width: "100%",
+        flexDirection: "column", // on small screen display searchbar on top of language filter
+        "@media (min-width: 600px)": {
+          flexDirection: "row", // Change back to row for larger screens
+        },
+      }}
+      onSubmit={(e) => {
+        e.preventDefault(); // Prevent the default form submission behavior
+        handleSearch(); // Call actual search handler
+      }}
+    >
+      <Paper sx={{ flexGrow: 1 }}>
         <TextField
           fullWidth
           placeholder={`Find a ${searchType}...`}
@@ -56,8 +77,20 @@ const Searchbar: React.FC<SearchbarProps> = ({
             ),
           }}
         />
-      </Box>
-    </Paper>
+      </Paper>
+      {searchType === "repository" && languageOptions && setLanguage && (
+        <Paper>
+          <Autocomplete
+            onChange={(event, newValue) => {
+              setLanguage(newValue);
+            }}
+            options={languageOptions}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Language" />}
+          />
+        </Paper>
+      )}
+    </Box>
   );
 };
 

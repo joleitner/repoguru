@@ -18,7 +18,13 @@ interface GitUserProfileProps {
   loading?: boolean;
 }
 
+/**
+ * Component to display a Git user profile
+ * @param {GitUserProfileProps} props
+ * @returns {JSX.Element} GitHub user profile
+ */
 const GitUserProfile: React.FC<GitUserProfileProps> = ({ user, loading }) => {
+  // while loading user profile, show skeleton
   if (loading) {
     return (
       <Paper variant="outlined" square sx={{ width: "100%", m: 1 }}>
@@ -115,7 +121,7 @@ const GitUserProfile: React.FC<GitUserProfileProps> = ({ user, loading }) => {
       </Paper>
     );
   }
-
+  // when no user is found, show notification
   if (!user) {
     return (
       <Container
@@ -136,7 +142,7 @@ const GitUserProfile: React.FC<GitUserProfileProps> = ({ user, loading }) => {
       </Container>
     );
   }
-
+  // show user profile
   return (
     <Paper variant="outlined" square sx={{ width: "100%", m: 1 }}>
       <Grid container>

@@ -11,6 +11,12 @@ interface RepoListProps {
   repos: Repository[];
   loading?: boolean;
 }
+
+/**
+ * Component to display a list of repositories
+ * @param {RepoListProps} props
+ * @returns {JSX.Element} List of repositories
+ */
 const RepoList: React.FC<RepoListProps> = ({ repos, loading }) => {
   // while loading repositories, show 3 skeleton items
   if (loading) {
@@ -55,7 +61,7 @@ const RepoList: React.FC<RepoListProps> = ({ repos, loading }) => {
       </Container>
     );
   }
-
+  // return list of repositories
   return (
     <Container sx={{ mt: 1 }}>
       <List>

@@ -7,6 +7,10 @@ import GitUserGrid from "./components/GitUserGrid";
 import { searchUsers } from "./githubApi";
 import { GitUser } from "./types";
 
+/**
+ * Home page with a searchbar to search for Git users
+ * @returns {JSX.Element} Home page
+ */
 export default function HomePage() {
   const [searchTerm, setSearchTerm] = useState("");
   // users is null when the user has not searched for anything (or resets the search bar)
