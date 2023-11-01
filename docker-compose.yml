@@ -6,7 +6,6 @@ services:
       context: ./next-app
       target: base
     volumes:
-      # - ./next-app:/app
       - ./next-app/app:/app/app
       - ./next-app/stories:/app/stories
       - ./next-app/__test__:/app/__test__

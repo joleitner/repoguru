@@ -70,7 +70,7 @@ const Searchbar: React.FC<SearchbarProps> = ({
             ),
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton type="submit">
+                <IconButton type="submit" data-testid="searchbar-button">
                   <SearchIcon color="primary" />
                 </IconButton>
               </InputAdornment>
@@ -87,6 +87,7 @@ const Searchbar: React.FC<SearchbarProps> = ({
             options={languageOptions}
             sx={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="Language" />}
+            data-testid="language-filter"
           />
         </Paper>
       )}

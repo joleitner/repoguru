@@ -31,7 +31,7 @@ const GitUserCard: React.FC<GitUserCardProps> = ({ user }) => {
           />
 
           <Typography variant="h5">{user.login}</Typography>
-          <Typography variant="button" color="primary" sx={{ mt: 3, mb: 1 }}>
+          <Typography variant="button" sx={{ mt: 3, mb: 1 }}>
             Browse Repositories
           </Typography>
         </CardContent>

@@ -27,13 +27,17 @@ This will build the Docker image and start the application.
 
 To run the tests, you can run the following command:
 
+```bash
+docker-compose run app npm run test
+```
+
 ## Future improvments
 
 - [ ] Add pagination to the search results (only up to 100 results at the moment)
 - [ ] Add sorting to the repository search results
 - [ ] Adding a tab to search repositories globally
+- [ ] Write more tests
 - [ ] Add CI/CD pipeline to run tests automatically before deploying
-- [ ] Create a unique Material UI theme
 - [ ] Adding accounts to save favorite repositories
 - [ ] Enable repo search for GitLab and other Git providers
 - [ ] ...

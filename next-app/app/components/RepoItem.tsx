@@ -24,7 +24,7 @@ const RepoItem: React.FC<RepoItemProps> = ({ repo, loading }) => {
   // while loading repository, show skeleton
   if (loading) {
     return (
-      <Container sx={{ p: "5px 0" }}>
+      <Container sx={{ p: "5px 0" }} data-testid="repoitem-skeleton">
         <Skeleton variant="text" width={150} sx={{ fontSize: "1.5rem" }} />
         <Skeleton variant="text" width={300} sx={{ fontSize: "1.5rem" }} />
         <Box sx={{ display: "flex", justifyContent: "end", gap: "10px" }}>
