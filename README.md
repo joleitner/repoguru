@@ -1,9 +1,9 @@
-# repoguru
+# RepoGuru
 
 ## Description
 
 RepoGuru a simple web application that allows you to search for GitHub repositories.
-It was developed using React (NextJS) and TypeScript. For styling, I used Material UI.
+It was developed using React (Next.js) and TypeScript. For styling, I used Material UI.
 I have also created stories with Storybook to showcase the components in isolation.
 
 > The application is deployed on Vercel and can be accessed here: https://repoguru.vercel.app.

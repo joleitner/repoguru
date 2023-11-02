@@ -21,9 +21,9 @@ export default function AboutPage() {
           repositories.
         </Typography>
         <Typography variant="body1">
-          This is a demo project to demonstrate development with NextJS (React).
-          You can also find stories created with Storybook for the developed
-          components.
+          This is a demo project to demonstrate development with Next.js
+          (React). You can also find stories created with Storybook for the
+          developed components.
         </Typography>
         <Typography variant="body1">
           Some unit tests have also been added for demonstration purposes.

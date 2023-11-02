@@ -9,8 +9,9 @@ const BASE_URL = "https://api.github.com";
  * @returns git users
  */
 export const searchUsers = async (searchTerm: string): Promise<GitUser[]> => {
+  const query = "q=" + encodeURIComponent(searchTerm);
   const response = await fetch(
-    `${BASE_URL}/search/users?q=${searchTerm}&per_page=100`
+    `${BASE_URL}/search/users?${query}&per_page=100`
   );
   const data = await response.json();
   return data.items;
@@ -29,15 +30,18 @@ export const searchUserRepos = async (
   searchTerm: string,
   language: string | null
 ): Promise<Repository[]> => {
-  let url = `${BASE_URL}/search/repositories?q=user:${username}`;
+  let queryString = `user:${username}`;
+  // create query string with available parameters
   if (searchTerm) {
-    url += `+${searchTerm}`;
+    queryString += ` ${searchTerm}`;
   }
   if (language) {
-    url += `+language:${language}`;
+    queryString += ` language:${language}`;
   }
-  url += "&per_page=100";
-
+  // its important to encode the query string otherwise with special characters it will not work
+  const url = `${BASE_URL}/search/repositories?q=${encodeURIComponent(
+    queryString
+  )}&per_page=100`;
   const response = await fetch(url);
   const data = await response.json();
   return data.items;
@@ -50,7 +54,9 @@ export const searchUserRepos = async (
  * @returns
  */
 export const getUser = async (username: string): Promise<GitUser | null> => {
-  const response = await fetch(`${BASE_URL}/users/${username}`);
+  const response = await fetch(
+    `${BASE_URL}/users/${encodeURIComponent(username)}`
+  );
   const data = await response.json();
   // check if the user actually exists otherwise return null
   // can happen if name is entered directly in the url
@@ -69,7 +75,7 @@ export const getUser = async (username: string): Promise<GitUser | null> => {
  */
 export const getUserRepos = async (username: string): Promise<Repository[]> => {
   const response = await fetch(
-    `${BASE_URL}/users/${username}/repos?per_page=100`
+    `${BASE_URL}/users/${encodeURIComponent(username)}/repos?per_page=100`
   );
   const data = await response.json();
   return data;
